@@ -42,14 +42,11 @@ docker compose up -d --build
 Once the containers are running, you need to create the first admin user:
 
 ```bash
+# Copy users.csv to the backend container
+docker compose cp users.csv backend:/app/users.csv
+
 # Enter the backend container
-docker compose exec backend sh
-
-# Import users (if you have the CSV)
-python manage.py import_users ./users.csv
-
-# OR Create a superuser manually
-python manage.py createsuperuser
+docker compose exec backend python manage.py import_users /app/users.csv
 ```
 
 ---
