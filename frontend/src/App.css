@@ -1,0 +1,4 @@
+/* Reset root styles for full-width layouts */
+#root {
+  width: 100%;
+}

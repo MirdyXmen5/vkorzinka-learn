@@ -1,0 +1,53 @@
+# Project Progress Log
+
+## [Date: 2026-01-15]
+- **Initialized Project**: Read requirements from `prompt-of-website.md`.
+- **Created Artifacts**: `task.md`, `implementation_plan.md`.
+- **Plan**:
+    - Backend: Django + DRF + PostgreSQL.
+    - Frontend: React + Vite.
+    - Auth: Import `users.csv` to DB.
+- **Backend**: Initialized Django project, created `users`, `courses`, `certificates` apps. Moved to `backend/`.
+    - Implemented Models: User (Custom), Course, Content, Test, Certificate.
+    - Implemented API: JWT Auth, ViewSets for all models.
+    - Implemented Tasks: Certificate cleanup command.
+    - Verified: `manage.py check` passed.
+- **Frontend**: Initialized React + Vite project.
+    - Installed dependencies: `axios`, `react-router-dom`, `tailwindcss`, `i18next`, `react-i18next`.
+    - Configured [i18n.js](file:///c:/Users/mirdy/%20Desktop/store-website-project/vk-learn-ver2/frontend/src/i18n.js) and integrated into `main.jsx`.
+    - Translated all major pages: `Login`, `Course List`, `Course Detail`, `Profile`, and `Test View`.
+    - Implemented language switcher in the Header.
+    - Added input for **Custom Certificate Recipient Name** after passing a test.
+
+## [Date: 2026-01-16]
+- **Multilingual Support**: Fully implemented RU/KK/EN support on frontend and backend.
+- **Custom Certificate Name**: Added ability to specify recipient name on certificates.
+- **Documentation**: Updated `prompt-of-website.md` with the new features to serve as the project's source of truth.
+- **Backend**: Configured Django i18n and marked strings for translation.
+- **Verified**: Confirmed translation switching and custom certificate generation.
+- **Admin Dashboard**:
+    - Implemented statistics view (total users, enrollments, completions).
+    - Created User Management view to track employee progress.
+    - Built comprehensive Course Management with a nested editor for content and tests.
+    - Added security layers (backend `IsAdminUserRole` and frontend protected routes).
+    - Refactored frontend routing with layout components for better maintainability.
+- **Bug Fixes (Round 1)**:
+    - Fixed "Save" button in Admin Course Form.
+    - Added `image_url` support for course content.
+    - Global styling: Light-gray borders for inputs.
+    - Fixed Certificate Generation 400 error.
+    - Added Profile link to Header.
+- **Refinements (Round 2)**:
+    - **Localization**: Added missing keys for Admin UI, Thumbnails, and Description labels.
+    - **Fonts**: Switched to "Inter" & "Roboto" for better Cyrillic support (Kazakh).
+    - **Certificates**: 
+        - Updated PDF generation to support Cyrillic fonts (DejaVuSans/Arial).
+        - Reduced auto-delete period to 10 days.
+    - **Video**: integrated `react-player` for better video playback.
+    - **UX**: Improved Admin form error messages (human-readable).
+    - **Deployment**: Added `fonts-dejavu` to Backend Dockerfile.
+    - **CRITICAL FIX**: Restored `index.css` after accidental truncation. SITE IS BACK ONLINE.
+- **Bug Fixes (Round 3)**:
+    - **Thumbnails**: Added persistence check and visual preview in Admin Edit mode to prevent disappearing covers.
+    - **Certificates**: Fixed "white page" error by configuring Vite proxy for `/media` and using correct relative download links.
+    - **Favicon**: Updated site icon to `small-logo.png`.
